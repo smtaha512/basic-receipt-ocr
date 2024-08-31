@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "basic-receipt-ocr"
+version = "0.1.0"
+description = "An OCR for extracting text from receipts for analysis"
+authors = ["smtaha512 <s.m.taha10@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+google-cloud-vision = "^3.7.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
