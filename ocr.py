@@ -1,6 +1,6 @@
 from google.cloud import vision
 
-from receipt_parsers import tedi_receipt_parser
+from receipt_parsers import receipt_parser
 
 def run_quickstart() -> vision.EntityAnnotation:
   client = vision.ImageAnnotatorClient()
@@ -13,7 +13,7 @@ def run_quickstart() -> vision.EntityAnnotation:
   response = client.text_detection(image=image)
   texts = response.text_annotations
   
-  print(tedi_receipt_parser.parse_receipt_from_tedi(texts))
+  print(receipt_parser.parse_receipt(texts))
 
   if response.error.message:
       raise Exception(
