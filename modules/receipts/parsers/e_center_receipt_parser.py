@@ -1,8 +1,9 @@
-from datetime import datetime
 import locale
 import re
-from receipt_parsers.types.parsed_receipt_type import Item, ParsedReceipt
-from receipt_parsers.utils.chunks import chunks
+from datetime import datetime
+
+from .types.parsed_receipt_type import Item, ParsedReceipt
+from .utils.chunks import chunks
 
 
 def convert_euro_currency_to_float(price: str) -> float:

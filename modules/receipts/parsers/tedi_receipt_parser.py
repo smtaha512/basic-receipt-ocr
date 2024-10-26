@@ -1,15 +1,21 @@
-from datetime import datetime
 import re
+from datetime import datetime
 
-from receipt_parsers.types.parsed_receipt_type import Item, ParsedReceipt
-from receipt_parsers.utils.chunks import chunks
+from .types.parsed_receipt_type import Item, ParsedReceipt
+from .utils.chunks import chunks
+from .utils.fuzzy_match import get_index_by_fuzzy_match
 
 
 def parse_receipt(receipt_content: list[str]) -> ParsedReceipt:
     index_of_first_item = 5
-    index_of_last_item_price = receipt_content.index("Kaufsumme:") - 1
+
+    excepted_keywords_for_total = ["Summe", "Total", "Kaufsumme", "Kaufsunm3"]
+    index_of_last_item_price = (
+        get_index_by_fuzzy_match(receipt_content, excepted_keywords_for_total) - 1
+    )
 
     items = receipt_content[index_of_first_item : index_of_last_item_price + 1]
+
     item_rows = chunks(items, 3)
     mapped_items: map[Item] = map(
         lambda item: {

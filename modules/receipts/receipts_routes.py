@@ -4,6 +4,7 @@ from fastapi import APIRouter, UploadFile
 from google.cloud import vision
 
 from .exceptions.invalid_file_type_exception import InvalidFileTypeException
+from .parsers import receipt_parser
 
 router = APIRouter()
 
@@ -23,5 +24,5 @@ async def upload_receipt(file: UploadFile) -> Any:
     return {
         "file": file.filename,
         "type": file.content_type,
-        "text": next(map(lambda text: text.description, texts)).split("\n"),
+        "text": receipt_parser.parse_receipt(texts),
     }
