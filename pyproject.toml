@@ -11,6 +11,7 @@ python = "^3.10"
 google-cloud-vision = "^3.7.4"
 ruff = "^0.7.1"
 fastapi = {extras = ["standard"], version = "^0.115.3"}
+python-multipart = "^0.0.12"
 
 
 [build-system]
