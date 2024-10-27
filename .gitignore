@@ -237,8 +237,6 @@ pyrightconfig.json
 .history
 .ionide
 
-assets/
-
 ### Node ###
 
 # Logs
@@ -401,6 +399,3 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/macOS,node
-n
-yarn.lock
-package-lock.json

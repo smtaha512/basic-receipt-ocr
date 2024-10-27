@@ -1,31 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import svgr from 'vite-plugin-svgr'
-import path from 'path'
+import react from '@vitejs/plugin-react-swc';
+import path from 'path';
+import { defineConfig } from 'vite';
 
-// https://vitejs.dev/config/
+// https://vite.dev/config/
 export default defineConfig({
-  base: './',
-  plugins: [
-    svgr({
-      exportAsDefault: true,
-    }),
-    react(),
-  ],
+  plugins: [react()],
   resolve: {
     alias: {
-      src: path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './src'),
     },
   },
-  css: {
-    preprocessorOptions: {
-      less: {
-        javascriptEnabled: true,
-      },
-    },
-  },
-  server: {
-    host: true,
-    port: 5000,
-  },
-})
+});

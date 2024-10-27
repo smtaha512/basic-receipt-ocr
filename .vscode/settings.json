@@ -1,8 +1,11 @@
 {
-  "cSpell.words": [
-    "fuzzywuzzy",
-    "tedi",
-    "venv",
-    "virtualenvs"
-  ]
+  "cSpell.words": ["fuzzywuzzy", "tedi", "venv", "virtualenvs"],
+  "editor.formatOnSave": true,
+  "prettier.configPath": "frontend/.prettierrc",
+  "eslint.format.enable": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll": "never"
+  }
 }
